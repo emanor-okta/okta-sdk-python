@@ -142,7 +142,7 @@ class RequestExecutor:
             self._cache.add("OKTA_ACCESS_TOKEN", access_token)
 
         # Add content type header if request body exists
-        if body:
+        if body and "Content-Type" not in headers:
             headers.update({"Content-Type": "application/json"})
             if not keep_empty_params:
                 body = self.clear_empty_params(body)

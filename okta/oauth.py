@@ -58,10 +58,10 @@ class OAuth:
 
         # Craft request
         oauth_req, err = await self._request_executor.create_request(
-            "POST", url, {'client_assertion': jwt}, {
+            "POST", url, {}, {
                 'Accept': "application/json",
                 'Content-Type': 'application/x-www-form-urlencoded'
-            }, oauth=True)
+            }, {'client_assertion': jwt}, oauth=True)
 
         # TODO Make max 1 retry
         # Shoot request
